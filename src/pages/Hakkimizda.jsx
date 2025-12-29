@@ -1,269 +1,273 @@
 import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 export default function Hakkimizda() {
-  const values = [
-    {
-      title: 'Yaratıcılık',
-      description: 'Her projede yenilikçi ve özgün çözümler üretiyoruz. Sıradanlıktan uzak, akılda kalıcı işler yapıyoruz.',
-      icon: '✨',
-      gradient: 'from-blue-500 to-purple-500'
-    },
-    {
-      title: 'Kalite',
-      description: 'En yüksek standartlarda iş çıkarıyor, mükemmellik peşinde koşuyoruz. Detaylara önem veriyoruz.',
-      icon: '🎯',
-      gradient: 'from-purple-500 to-pink-500'
-    },
-    {
-      title: 'İnovasyon',
-      description: 'Teknolojinin en son imkanlarını kullanarak geleceği şekillendiriyoruz. Sürekli yeniliğe açığız.',
-      icon: '🚀',
-      gradient: 'from-pink-500 to-rose-500'
-    },
-    {
-      title: 'Güven',
-      description: 'Müşterilerimizle uzun vadeli, güvenilir ilişkiler kuruyoruz. Şeffaflık ve dürüstlük önceliğimiz.',
-      icon: '🤝',
-      gradient: 'from-orange-500 to-red-500'
-    },
-  ];
+  const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
 
-  const team = [
-    {
-      role: 'Tasarım Ekibi',
-      description: 'Grafik tasarım, marka kimliği ve görsel iletişim konularında uzman yaratıcı ekibimiz.',
-      gradient: 'from-blue-500 to-cyan-500'
-    },
-    {
-      role: 'Yazılım Ekibi',
-      description: 'Modern teknolojilerle web ve mobil uygulama geliştiren deneyimli yazılımcılarımız.',
-      gradient: 'from-purple-500 to-pink-500'
-    },
-    {
-      role: 'Prodüksiyon Ekibi',
-      description: 'Video çekimi, kurgu ve post-prodüksiyon süreçlerini yöneten profesyonel ekibimiz.',
-      gradient: 'from-pink-500 to-orange-500'
-    },
-    {
-      role: 'Dijital Pazarlama',
-      description: 'Sosyal medya yönetimi ve dijital strateji konusunda uzman pazarlama ekibimiz.',
-      gradient: 'from-teal-500 to-green-500'
+  // SEO Meta Tags
+  useEffect(() => {
+    document.title = 'Hakkımızda | A&C Digital - Sakarya Dijital Ajans';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'A&C Digital olarak Sakarya merkezli dijital ajans olarak web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında profesyonel çözümler sunuyoruz.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'A&C Digital olarak Sakarya merkezli dijital ajans olarak web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında profesyonel çözümler sunuyoruz.';
+      document.head.appendChild(meta);
     }
-  ];
+
+    // Keywords
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'Sakarya web tasarım, dijital ajans Sakarya, sosyal medya yönetimi, yazılım geliştirme, A&C Digital');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'Sakarya web tasarım, dijital ajans Sakarya, sosyal medya yönetimi, yazılım geliştirme, A&C Digital';
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
-      
+    <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 px-4 sm:px-6">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-black/70 from-black via-gray-900 to-black">
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-20 left-40 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-          </div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-purple-500/30">
-            <span className="text-sm uppercase tracking-wider text-purple-300">Hakkımızda</span>
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
+        
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <div className="inline-block px-6 py-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 sm:mb-8">
+            <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.3em] text-gray-400">Hakkımızda</span>
           </div>
           
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Beynin Renkli Tarafı
-            </span>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 sm:mb-8 leading-tight font-light">
+            Dijitalde
             <br />
-            <span className="text-white">ile Tanışın</span>
+            <span className="bg-gradient-to-r font-bold from-[#00D4FF] via-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
+              Fark Yaratıyoruz
+            </span>
           </h1>
           
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            2014 yılından beri markaları renkli fikirlerle güçlendiriyoruz. 
-            Yaratıcılık, teknoloji ve stratejiyi birleştirerek işinizi dijital dünyada öne çıkarıyoruz.
+          <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
+            A&C Digital olarak, Sakarya merkezli bir dijital ajans olarak markaların dijital 
+            dönüşüm yolculuğunda yanlarında yer alıyor, web tasarım, yazılım geliştirme ve 
+            sosyal medya yönetimi alanlarında profesyonel çözümler sunuyoruz.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="#kimiz-biz" 
+              className="px-8 py-4 bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] text-gray-900 rounded-full font-semibold hover:shadow-2xl hover:shadow-[#00D4FF]/30 transition-all duration-300 hover:scale-105"
+            >
+              Daha Fazla Keşfet
+            </a>
+            <Link 
+              to="/iletisim" 
+              className="px-8 py-4 bg-white/5 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300 border border-white/10"
+            >
+              İletişime Geç
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="hidden sm:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white/50 rounded-full"></div>
+          </div>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-transparent from-black to-gray-900">
+      {/* About Content */}
+      <section id="kimiz-biz" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full border border-pink-500/30">
-                <span className="text-sm uppercase tracking-wider text-pink-300">Hikayemiz</span>
+          {/* Kimiz Biz */}
+          <div 
+            ref={ref1}
+            className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20 lg:mb-32 transition-all duration-1000 ${
+              inView1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div>
+              <div className="inline-block px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-[#4DB8FF]/20 mb-6">
+                <span className="text-xs font-medium text-[#4DB8FF] tracking-wider uppercase">Biz Kimiz</span>
               </div>
               
-              <h2 className="text-4xl sm:text-5xl font-bold">
-                <span className="bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
-                  10+ Yıllık Deneyim
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-[#00D4FF] via-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
+                  Kimiz Biz?
                 </span>
               </h2>
+              <div className="space-y-5 text-base sm:text-lg text-gray-400 leading-relaxed">
+                <p>
+                  A&C Digital, Sakarya'da kurulmuş bir dijital ajans olarak, markaların dijital 
+                  varlıklarını güçlendirmek ve sürdürülebilir büyüme sağlamak için çalışıyoruz. 
+                  Web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında uzmanlaşmış 
+                  bir ekibiz.
+                </p>
+                <p>
+                  Tasarımın gücünü, teknolojinin imkanlarını ve stratejik düşüncenin derinliğini 
+                  bir araya getirerek, her markaya özel çözümler üretiyoruz. Amacımız, markaların 
+                  dijital dünyada sadece var olmalarını değil, aynı zamanda etkileyici ve 
+                  unutulmaz bir iz bırakmalarını sağlamak.
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-white/10 hover:border-[#4DB8FF]/30 transition-all duration-300">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8">Uzmanlık Alanlarımız</h3>
+                <div className="space-y-6">
+                  {[
+                    { title: "Web Tasarım & Geliştirme", desc: "Modern, responsive ve hızlı web siteleri" },
+                    { title: "Dijital Pazarlama", desc: "SEO, sosyal medya ve içerik stratejileri" },
+                    { title: "Yazılım Çözümleri", desc: "Özel yazılım ve uygulama geliştirme" },
+                    { title: "Marka Kimliği", desc: "Logo, kurumsal kimlik ve görsel dil" }
+                  ].map((item, index) => (
+                    <div key={index} className="group p-5 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/5">
+                      <h4 className="font-semibold text-white mb-2 text-lg group-hover:text-[#4DB8FF] transition-colors">{item.title}</h4>
+                      <p className="text-sm text-gray-400">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Değerlerimiz */}
+          <div 
+            ref={ref2}
+            className={`mb-20 lg:mb-32 transition-all duration-1000 delay-300 ${
+              inView2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="text-center mb-12 lg:mb-16">
+              <div className="inline-block px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-[#4DB8FF]/20 mb-6">
+                <span className="text-xs font-medium text-[#4DB8FF] tracking-wider uppercase">Değerlerimiz</span>
+              </div>
               
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  2014 yılında, dijital dünyayı daha renkli ve yaratıcı hale getirme hayaliyle yola çıktık. 
-                  Küçük bir ekiple başladığımız yolculuğumuz, bugün 150'den fazla mutlu müşteriye 
-                  hizmet veren bir ajansa dönüştü.
-                </p>
-                <p>
-                  Başlangıçta sadece grafik tasarım hizmeti verirken, zamanla dijital pazarlama, 
-                  web geliştirme, video prodüksiyon ve baskı hizmetlerini de portföyümüze ekledik. 
-                  Her geçen gün büyüyor, gelişiyor ve daha iyisini yapmak için çabalıyoruz.
-                </p>
-                <p>
-                  Ekibimiz, her biri kendi alanında uzman, tutkulu profesyonellerden oluşuyor. 
-                  Ortak hedefimiz: Müşterilerimizin markalarını öne çıkaran, akılda kalıcı projeler üretmek.
-                </p>
-              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-[#00D4FF] via-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
+                  Değerlerimiz
+                </span>
+              </h2>
+              <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
+                İş yapış şeklimizi belirleyen temel prensipler ve değerler
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="group bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                <div className="text-5xl mb-4">🎨</div>
-                <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  500+
-                </h3>
-                <p className="text-sm text-gray-400">Tamamlanan Proje</p>
-              </div>
-
-              <div className="group bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 mt-12">
-                <div className="text-5xl mb-4">😊</div>
-                <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  150+
-                </h3>
-                <p className="text-sm text-gray-400">Mutlu Müşteri</p>
-              </div>
-
-              <div className="group bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 -mt-6">
-                <div className="text-5xl mb-4">⚡</div>
-                <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
-                  10+
-                </h3>
-                <p className="text-sm text-gray-400">Yıllık Deneyim</p>
-              </div>
-
-              <div className="group bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 mt-6">
-                <div className="text-5xl mb-4">🏆</div>
-                <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                  %98
-                </h3>
-                <p className="text-sm text-gray-400">Memnuniyet</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & Mission */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-black/70 from-gray-900 to-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10 hover:bg-white/10 transition-all duration-300 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative z-10">
-                <div className="text-6xl mb-6">🎯</div>
-                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Vizyonumuz
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Türkiye'nin en yaratıcı ve yenilikçi tasarım ajansı olmak. 
-                  Markaların dijital dönüşümünde öncü rol oynamak ve her projede 
-                  sınırları zorlamak. Yerel pazarda lider konumda olmanın yanı sıra, 
-                  global projelerde de adımızdan söz ettirmek.
-                </p>
-              </div>
-            </div>
-
-            <div className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10 hover:bg-white/10 transition-all duration-300 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative z-10">
-                <div className="text-6xl mb-6">🚀</div>
-                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
-                  Misyonumuz
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Müşterilerimize en kaliteli, özgün ve etkili çözümleri sunmak. 
-                  Her projede mükemmellik standartlarını koruyarak, markaların 
-                  hedef kitleleriyle güçlü bağlar kurmasını sağlamak. Yaratıcılığı, 
-                  teknolojiyi ve stratejik düşünceyi birleştirerek değer yaratmak.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-transparent from-black to-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-teal-500/20 to-green-500/20 rounded-full border border-teal-500/30">
-              <span className="text-sm uppercase tracking-wider text-teal-300">Değerlerimiz</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent">
-                Bizi Biz Yapan Değerler
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Her projede rehberimiz olan temel prensiplerimiz
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 overflow-hidden"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-                <div className="relative z-10">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${value.gradient} rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
-                    {value.icon}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {[
+                {
+                  title: "Yaratıcı Yaklaşım",
+                  description: "Her projeye özgün ve yenilikçi bir bakış açısı getiriyor, standart kalıpların dışına çıkarak markanıza değer katacak çözümler üretiyoruz.",
+                  gradient: "from-[#00D4FF] to-[#4DB8FF]"
+                },
+                {
+                  title: "Stratejik Planlama",
+                  description: "Detaylı analizler ve hedef kitle araştırmaları yaparak, her adımı özenle planlıyor ve uzun vadeli başarı için sağlam stratejiler geliştiriyoruz.",
+                  gradient: "from-[#4DB8FF] to-[#80D4FF]"
+                },
+                {
+                  title: "Teknolojik İnovasyon",
+                  description: "Güncel teknolojileri ve modern araçları etkin şekilde kullanarak, kullanıcı dostu ve yüksek performanslı dijital ürünler oluşturuyoruz.",
+                  gradient: "from-[#80D4FF] to-[#00D4FF]"
+                }
+              ].map((value, index) => (
+                <div 
+                  key={index}
+                  className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10 hover:border-[#4DB8FF]/30 transition-all duration-500 hover:scale-[1.02]"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
+                  <div className="relative">
+                    <div className={`w-12 h-1 bg-gradient-to-r ${value.gradient} rounded-full mb-6 group-hover:w-20 transition-all duration-500`}></div>
+                    <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#00D4FF] group-hover:to-[#80D4FF] group-hover:bg-clip-text transition-all duration-300">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
+                      {value.description}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {value.description}
-                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Misyon & Vizyon */}
+          <div 
+            ref={ref3}
+            className={`grid lg:grid-cols-2 gap-8 lg:gap-12 transition-all duration-1000 delay-600 ${
+              inView3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            {/* Misyon */}
+            <div className="relative group">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-8 lg:p-10 border border-white/10 hover:border-[#4DB8FF]/30 transition-all duration-500 hover:scale-[1.02] h-full">
+                <div className="w-12 h-1 bg-gradient-to-r from-[#00D4FF] to-[#4DB8FF] rounded-full mb-6"></div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-[#00D4FF] to-[#4DB8FF] bg-clip-text text-transparent">
+                    Misyonumuz
+                  </span>
+                </h3>
+                <p className="text-base lg:text-lg text-gray-400 leading-relaxed mb-6">
+                  Markaların dijital dünyada daha güçlü bir varlık kazanmasını sağlamak, 
+                  hedef kitleleriyle anlamlı bağlar kurmalarına yardımcı olmak ve 
+                  sürdürülebilir başarı elde etmelerini desteklemek. Her projede 
+                  müşteri memnuniyetini ön planda tutarak, kaliteli ve etkili çözümler 
+                  sunmak temel görevimizdir.
+                </p>
+                <div className="flex items-start gap-3 text-sm text-gray-500 bg-white/5 rounded-lg p-4">
+                  <div className="w-1 h-full bg-gradient-to-b from-[#00D4FF] to-[#80D4FF] rounded-full mt-1"></div>
+                  <span>Dijital dönüşüm yolculuğunda yanınızda olmak</span>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Vizyon */}
+            <div className="relative group">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-8 lg:p-10 border border-white/10 hover:border-[#4DB8FF]/30 transition-all duration-500 hover:scale-[1.02] h-full">
+                <div className="w-12 h-1 bg-gradient-to-r from-[#4DB8FF] to-[#80D4FF] rounded-full mb-6"></div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
+                    Vizyonumuz
+                  </span>
+                </h3>
+                <p className="text-base lg:text-lg text-gray-400 leading-relaxed mb-6">
+                  Türkiye'de ve global ölçekte dijital pazarlamanın geleceğine yön veren, 
+                  yenilikçi ve güvenilir bir ajans olmak. Teknoloji ve tasarımın kesişim 
+                  noktasında, sektör standartlarını belirleyen, sürekli gelişen ve 
+                  müşterilerine değer katan bir referans noktası haline gelmek.
+                </p>
+                <div className="flex items-start gap-3 text-sm text-gray-500 bg-white/5 rounded-lg p-4">
+                  <div className="w-1 h-full bg-gradient-to-b from-[#00D4FF] to-[#80D4FF] rounded-full mt-1"></div>
+                  <span>Dijital ajans sektöründe öncü bir marka olmak</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-black/70 from-gray-900 to-black">
+      {/* Stats Section */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full border border-yellow-500/30">
-              <span className="text-sm uppercase tracking-wider text-yellow-300">Ekibimiz</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
-                Uzman Ekibimiz
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Tutkulu, deneyimli ve yaratıcı profesyonellerden oluşan ekibimiz
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <div
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {[
+              { number: "500+", label: "Tamamlanan Proje" },
+              { number: "150+", label: "Mutlu Müşteri" },
+              { number: "7+", label: "Yıllık Deneyim" },
+              { number: "24/7", label: "Destek" }
+            ].map((stat, index) => (
+              <div 
                 key={index}
-                className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 overflow-hidden"
+                className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10 hover:border-[#4DB8FF]/30 hover:scale-105 transition-all duration-500 group"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${member.gradient} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}></div>
-                  <h3 className="text-xl font-bold mb-3">{member.role}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {member.description}
-                  </p>
+                <div className="text-4xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+                  {stat.number}
                 </div>
+                <div className="text-sm lg:text-base text-gray-400 uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -271,41 +275,41 @@ export default function Hakkimizda() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"></div>
-            <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
+          <div className="relative rounded-3xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00D4FF]/10 via-[#4DB8FF]/10 to-[#80D4FF]/10 backdrop-blur-sm"></div>
             
-            <div className="relative p-12 md:p-16 text-center">
-              <div className="text-6xl mb-6">🤝</div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Birlikte Çalışalım
+            <div className="relative p-10 sm:p-12 lg:p-16 text-center border border-white/10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <span className="text-white">Projenizi</span>{' '}
+                <span className="bg-gradient-to-r from-[#00D4FF] via-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
+                  Konuşalım
+                </span>
               </h2>
-              <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Markanızı bir sonraki seviyeye taşımak için hazırız. 
-                Ücretsiz danışmanlık için hemen iletişime geçin!
+              <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed">
+                Dijital projeniz için profesyonel çözümler sunmak için hazırız. 
+                Ücretsiz danışmanlık ve teklif almak için iletişime geçin.
               </p>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   to="/iletisim" 
-                  className="px-8 py-4 bg-white text-purple-600 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 hover:scale-110 shadow-2xl"
+                  className="px-8 py-4 bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] text-gray-900 rounded-full font-bold hover:shadow-2xl hover:shadow-[#00D4FF]/30 transition-all duration-300 hover:scale-105"
                 >
-                  İletişime Geçin 📧
+                  İletişime Geç
                 </Link>
                 <Link 
-                  to="/portfoy" 
-                  className="px-8 py-4 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30"
+                  to="/hizmetler" 
+                  className="px-8 py-4 bg-white/5 backdrop-blur-md text-white rounded-full font-bold hover:bg-white/10 transition-all duration-300 border border-white/10"
                 >
-                  Çalışmalarımızı Görün
+                  Hizmetlerimizi Keşfedin
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </div>
   );
 }
-

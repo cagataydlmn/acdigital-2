@@ -411,12 +411,13 @@ export default function WebTasarimUygulama() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="aspect-square bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-white/10 flex items-center justify-center p-8">
-              <div className="text-center">
-                <div className="text-8xl mb-6">🎨</div>
-                <p className="text-gray-300 text-lg mb-4">Kullanıcı Deneyimi Odaklı Tasarım</p>
-                <p className="text-gray-400 text-sm">UI/UX Best Practices</p>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-400/50 transition-all duration-300 shadow-2xl hover:shadow-cyan-400/20">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10"></div>
+              <img 
+                src="/anasayfa.png" 
+                alt="Web Tasarım ve Uygulama Geliştirme" 
+                className="w-full h-auto object-cover relative z-10"
+              />
             </div>
           </motion.div>
           

@@ -1,176 +1,208 @@
-export default function Blog() {
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'Lorem Ipsum Dolor Sit Amet',
-      category: 'Haberler',
-      date: '15 Ocak 2024',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-      icon: '📰',
-      tags: ['Tasarım', 'Haberler', 'Güncel'],
-    },
-    {
-      id: 2,
-      title: 'Consectetur Adipiscing Elit',
-      category: 'Blog',
-      date: '12 Ocak 2024',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-      icon: '✍️',
-      tags: ['Yazılım', 'Teknoloji', 'İnovasyon'],
-    },
-    {
-      id: 3,
-      title: 'Sed Do Eiusmod Tempor',
-      category: 'Haberler',
-      date: '10 Ocak 2024',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-      icon: '🎨',
-      tags: ['Tasarım', 'Kreatif', 'Trend'],
-    },
-    {
-      id: 4,
-      title: 'Incididunt Ut Labore Et',
-      category: 'Blog',
-      date: '8 Ocak 2024',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-      icon: '💡',
-      tags: ['Fikirler', 'İpuçları', 'Rehber'],
-    },
-    {
-      id: 5,
-      title: 'Dolore Magna Aliqua Ut',
-      category: 'Haberler',
-      date: '5 Ocak 2024',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
-      icon: '🚀',
-      tags: ['Gelişmeler', 'Yenilikler', 'Güncellemeler'],
-    },
-    {
-      id: 6,
-      title: 'Enim Ad Minim Veniam',
-      category: 'Blog',
-      date: '3 Ocak 2024',
-      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-      icon: '📱',
-      tags: ['Mobil', 'Dijital', 'Medya'],
-    },
-  ];
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { blogPosts, categories } from "../data/blogData";
+import { Helmet } from "react-helmet-async";
 
-  const categories = ['Tümü', 'Haberler', 'Blog'];
+export default function Blog() {
+  const [selectedCategory, setSelectedCategory] = useState("tumu");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Filtreleme
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesCategory =
+      selectedCategory === "tumu" || post.category === selectedCategory;
+    const matchesSearch =
+      searchQuery === "" ||
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.tags.some((tag) =>
+        tag.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    return matchesCategory && matchesSearch;
+  });
 
   return (
-    <div className="min-h-screen text-white relative" style={{ zIndex: 1, position: 'relative', paddingTop: '80px' }}>
-      <main className="max-w-7xl mx-auto px-6 py-20">
-        {/* Hero Section */}
-        <section className="mb-20 text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-4">
-            Blog / Haberler
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Blog & Haberler
-          </h1>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </section>
+    <>
+      <Helmet>
+        <title>Blog & Dijital Rehberler | A&C Digital</title>
+        <meta
+          name="description"
+          content="Web tasarım, SEO, dijital pazarlama, sosyal medya ve yazılım geliştirme hakkında güncel blog yazıları ve rehberler."
+        />
+        <meta
+          name="keywords"
+          content="dijital pazarlama blog, web tasarım rehberi, SEO ipuçları, Instagram reklamları, Sakarya dijital ajans"
+        />
+      </Helmet>
 
-        {/* Filter Section */}
-        <section className="mb-12">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category, index) => (
-              <button
-                key={index}
-                className="px-6 py-2 text-sm font-medium rounded-full transition-all hover:scale-105"
-                style={{
-                  backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
-                  backgroundColor: index === 0 ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  boxShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.2)',
-                }}
+      <section className="min-h-screen py-24 px-6 text-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Başlık ve Arama */}
+          <div className="mb-16 text-center">
+            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-[#00D4FF]/20 to-[#80D4FF]/20 rounded-full border border-[#4DB8FF]/30">
+              <span className="text-sm uppercase tracking-wider text-[#4DB8FF] font-medium">
+                Blog & Rehberler
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-[#197c93] via-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
+                Dijital Dünyada Güncel Kalın
+              </span>
+            </h1>
+            <p className="text-gray-400 max-w-3xl mx-auto text-lg mb-8">
+              Web tasarım, SEO, dijital pazarlama ve yazılım geliştirme hakkında uzman ekibimizin hazırladığı içerikler
+            </p>
+
+            {/* Arama Kutusu */}
+            <div className="max-w-xl mx-auto relative">
+              <input
+                type="text"
+                placeholder="Blog yazılarında ara..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white placeholder-gray-500 focus:outline-none focus:border-[#4DB8FF]/50 transition-all"
+              />
+              <svg
+                className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                {category}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          {/* Kategoriler */}
+          <div className="mb-12 flex flex-wrap justify-center gap-3">
+            {categories.map((category) => (
+              <button
+                key={category.slug}
+                onClick={() => setSelectedCategory(category.slug)}
+                className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${
+                  selectedCategory === category.slug
+                    ? "bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] text-gray-900 shadow-lg shadow-[#4DB8FF]/30"
+                    : "bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20"
+                }`}
+              >
+                {category.name}
+                <span className="ml-2 text-xs opacity-70">
+                  ({category.count})
+                </span>
               </button>
             ))}
           </div>
-        </section>
 
-        {/* Blog Posts Grid */}
-        <section className="mb-20">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
-              <article
-                key={post.id}
-                className="group rounded-2xl overflow-hidden transition-all hover:scale-105 cursor-pointer"
-                style={{
-                  backdropFilter: 'blur(20px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-                }}
-              >
-                {/* Post Icon */}
-                <div
-                  className="h-48 flex items-center justify-center text-6xl transition-transform group-hover:scale-110"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(82, 39, 255, 0.2) 0%, rgba(255, 159, 252, 0.2) 100%)',
-                  }}
+          {/* Blog Listesi */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-2">
+              {selectedCategory === "tumu" ? "Tüm Makaleler" : `${selectedCategory} Makaleleri`}
+            </h2>
+            <p className="text-gray-400 text-sm">
+              {filteredPosts.length} makale bulundu
+            </p>
+          </div>
+
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-16">
+              <div className="text-6xl mb-4">🔍</div>
+              <p className="text-xl text-gray-400">
+                Aradığınız kriterlere uygun blog yazısı bulunamadı.
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-6">
+              {filteredPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  to={`/blog/${post.slug}`}
+                  className="group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-[#4DB8FF]/50 transition-all duration-300"
                 >
-                  {post.icon}
-                </div>
-
-                {/* Post Info */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span
-                      className="text-xs px-3 py-1 rounded-full"
-                      style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                      }}
-                    >
+                  {/* Kategori Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 text-xs font-medium bg-[#4DB8FF]/20 text-[#4DB8FF] rounded-full border border-[#4DB8FF]/30">
                       {post.category}
                     </span>
-                    <span className="text-xs text-gray-400">{post.date}</span>
+                    <div className="flex items-center gap-2 text-xs text-gray-500">
+                      <time dateTime={post.date}>{post.date}</time>
+                      <span>•</span>
+                      <span>{post.readTime}</span>
+                    </div>
                   </div>
-                  
-                  <h3 className="text-xl font-bold mb-3">{post.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+
+                  {/* Başlık */}
+                  <h2 className="text-xl font-bold mb-3 group-hover:text-[#4DB8FF] transition-colors leading-snug">
+                    {post.title}
+                  </h2>
+
+                  {/* Açıklama */}
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
 
-                  {/* Tags */}
+                  {/* Etiketler */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {post.tags.map((tag, index) => (
+                    {post.tags.slice(0, 3).map((tag, index) => (
                       <span
                         key={index}
-                        className="text-xs px-2 py-1 rounded"
-                        style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid rgba(255, 255, 255, 0.1)',
-                        }}
+                        className="text-xs px-2 py-1 bg-white/5 rounded-md text-gray-500 border border-white/10"
                       >
-                        {tag}
+                        #{tag}
                       </span>
                     ))}
                   </div>
 
-                  {/* Read More */}
-                  <div className="flex items-center gap-2 text-sm text-gray-400 group-hover:gap-4 transition-all">
+                  {/* Devamını Oku */}
+                  <span className="text-sm text-[#4DB8FF] group-hover:underline flex items-center gap-2 font-medium">
                     Devamını Oku
-                    <span>→</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+                    <svg
+                      className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
 
-      </main>
-    </div>
+          {/* CTA Section */}
+          <section className="mt-20">
+            <div className="relative rounded-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00D4FF]/20 via-[#4DB8FF]/20 to-[#80D4FF]/20"></div>
+              <div className="absolute inset-0 backdrop-blur-xl"></div>
+
+              <div className="relative p-12 text-center border border-white/10">
+                <h2 className="text-3xl font-bold mb-4">
+                  Projeniz İçin Profesyonel Destek
+                </h2>
+                <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                  Web tasarım, SEO, dijital pazarlama ve sosyal medya yönetimi hizmetlerimiz hakkında detaylı bilgi almak için bizimle iletişime geçin.
+                </p>
+                <Link
+                  to="/iletisim"
+                  className="inline-block px-8 py-4 bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] text-gray-900 rounded-full font-semibold hover:shadow-lg hover:shadow-[#4DB8FF]/50 transition-all hover:scale-105"
+                >
+                  Ücretsiz Danışmanlık Alın
+                </Link>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </>
   );
 }
-

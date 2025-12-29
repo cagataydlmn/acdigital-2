@@ -5,6 +5,7 @@ import Hakkimizda from "../pages/Hakkimizda";
 import Portfoy from "../pages/Portfoy";
 import Hizmetler from "../pages/Hizmetler";
 import Blog from "../pages/Blog";
+import BlogDetail from "../pages/BlogDetail";
 import Iletisim from "../pages/Iletisim";
 import NotFound from "../pages/NotFound";
 import Eticaret_cözümleri from "../components/services/Eticaret_cözümleri";
@@ -15,6 +16,9 @@ import KurumsalKimlikTasarimi from "../components/services/KurumsalKimlikTasarim
 import Seo from "../components/services/Seo";
 import WebTasarimUygulama from "../components/services/WebTasarimUygulama";
 import Denemene from "../pages/deneme";
+import GizlilikPolitikasi from "../pages/GizlilikPolitikasi";
+import KullanimKosullari from "../pages/KullanimKosullari";
+import CerezPolitikasi from "../pages/CerezPolitikasi";
 
 const routes = createBrowserRouter([
   {
@@ -39,6 +43,10 @@ const routes = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/blog/:slug",
+        element: <BlogDetail />,
       },
       {
         path: "/iletisim",
@@ -75,6 +83,18 @@ const routes = createBrowserRouter([
       {
         path:"/deneme",
         element:<Denemene/>
+      },
+      {
+        path: "/gizlilik-politikasi",
+        element: <GizlilikPolitikasi />,
+      },
+      {
+        path: "/kullanim-kosullari",
+        element: <KullanimKosullari />,
+      },
+      {
+        path: "/cerez-politikasi",
+        element: <CerezPolitikasi />,
       },
     ],
   },

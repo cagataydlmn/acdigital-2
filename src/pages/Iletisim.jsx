@@ -37,23 +37,23 @@ export default function Iletisim() {
     {
       icon: "📍",
       title: "Adres",
-      info: "Serdivan, Sakarya",
+      info: "Sakarya",
       detail: "Türkiye",
-      link: "https://maps.google.com/?q=Serdivan,Sakarya"
+      link: "https://maps.google.com/?q=Sakarya,Turkey"
     },
     {
       icon: "📧",
       title: "E-Posta",
-      info: "info@mfocreative.com",
-      detail: "destek@mfocreative.com",
-      link: "mailto:info@mfocreative.com"
+      info: "info@acdigital.tech",
+      detail: "destek@acdigital.tech",
+      link: "mailto:info@acdigital.tech"
     },
     {
       icon: "📞",
       title: "Telefon",
-      info: "+90 (XXX) XXX XX XX",
-      detail: "Hafta içi 09:00 - 18:00",
-      link: "tel:+905XXXXXXXXX"
+      info: "+90 (532) 264 58 27",
+      detail: "+90 (532) 529 90 96",
+      link: "tel:+905322645827"
     },
     {
       icon: "🕐",
