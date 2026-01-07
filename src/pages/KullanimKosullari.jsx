@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function KullanimKosullari() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Kullanım Koşulları | A&C Digital';
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Kullanım Koşulları | A&C Digital</title>
+        <meta
+          name="description"
+          content="A&C Digital web sitesi kullanım koşulları. Site kullanımına ilişkin şartlar ve koşullar."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://acdigital.com.tr/kullanim-kosullari" />
+      </Helmet>
+      <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -185,5 +195,6 @@ export default function KullanimKosullari() {
         </div>
       </section>
     </div>
+    </>
   );
 }

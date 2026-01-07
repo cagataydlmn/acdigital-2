@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function GizlilikPolitikasi() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Gizlilik Politikası | A&C Digital - KVKK Uyumlu';
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Gizlilik Politikası | A&C Digital - KVKK Uyumlu</title>
+        <meta
+          name="description"
+          content="A&C Digital gizlilik politikası. Kişisel verilerinizin korunması ve KVKK uyumlu veri işleme süreçleri hakkında bilgi."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://acdigital.com.tr/gizlilik-politikasi" />
+      </Helmet>
+      <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -210,5 +220,6 @@ export default function GizlilikPolitikasi() {
         </div>
       </section>
     </div>
+    </>
   );
 }

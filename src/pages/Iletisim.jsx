@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import CTASection from '../components/CTASection';
 
 export default function Iletisim() {
   const [formData, setFormData] = useState({
@@ -72,7 +74,24 @@ export default function Iletisim() {
   ];
 
   return (
-    <div className="min-h-screen text-white relative" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>İletişim | A&C Digital - Sakarya Dijital Ajans</title>
+        <meta
+          name="description"
+          content="A&C Digital ile iletişime geçin. Sakarya merkezli dijital ajans. Web tasarım, yazılım geliştirme ve dijital pazarlama hizmetleri için ücretsiz teklif alın."
+        />
+        <meta
+          name="keywords"
+          content="A&C Digital iletişim, Sakarya dijital ajans iletişim, web tasarım teklifi, ücretsiz danışmanlık, Sakarya web tasarım"
+        />
+        <meta property="og:title" content="İletişim | A&C Digital" />
+        <meta property="og:description" content="Projeniz için ücretsiz teklif alın. Web tasarım, yazılım ve dijital pazarlama hizmetleri." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/iletisim" />
+        <link rel="canonical" href="https://acdigital.com.tr/iletisim" />
+      </Helmet>
+      <div className="min-h-screen text-white relative" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 opacity-50"></div>
@@ -344,6 +363,15 @@ export default function Iletisim() {
           </div>
         </div>
       </section>
+
+      {/* CTA Section - Optional alternative messaging */}
+      <CTASection 
+        title="Hala Karar Veremediniz mi?"
+        description="Projeniz hakkında detaylı bilgi almak için ücretsiz danışmanlık hizmetimizden yararlanın."
+        primaryButtonText="Ücretsiz Danışmanlık Al"
+        secondaryButtonText="Portfolyomuza Göz Atın"
+      />
     </div>
+    </>
   );
 }

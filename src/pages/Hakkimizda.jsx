@@ -1,39 +1,32 @@
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import CTASection from '../components/CTASection';
 
 export default function Hakkimizda() {
   const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
   const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
   const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
 
-  // SEO Meta Tags
-  useEffect(() => {
-    document.title = 'Hakkımızda | A&C Digital - Sakarya Dijital Ajans';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'A&C Digital olarak Sakarya merkezli dijital ajans olarak web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında profesyonel çözümler sunuyoruz.');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'A&C Digital olarak Sakarya merkezli dijital ajans olarak web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında profesyonel çözümler sunuyoruz.';
-      document.head.appendChild(meta);
-    }
-
-    // Keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Sakarya web tasarım, dijital ajans Sakarya, sosyal medya yönetimi, yazılım geliştirme, A&C Digital');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = 'Sakarya web tasarım, dijital ajans Sakarya, sosyal medya yönetimi, yazılım geliştirme, A&C Digital';
-      document.head.appendChild(meta);
-    }
-  }, []);
-
   return (
-    <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Hakkımızda | A&C Digital - Sakarya Dijital Ajans</title>
+        <meta
+          name="description"
+          content="A&C Digital olarak Sakarya merkezli dijital ajans olarak web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında profesyonel çözümler sunuyoruz."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya web tasarım, dijital ajans Sakarya, sosyal medya yönetimi, yazılım geliştirme, A&C Digital, Sakarya dijital pazarlama"
+        />
+        <meta property="og:title" content="Hakkımızda | A&C Digital" />
+        <meta property="og:description" content="Sakarya merkezli dijital ajans. Web tasarım, yazılım geliştirme ve sosyal medya yönetimi alanlarında profesyonel çözümler." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/hakkimizda" />
+        <link rel="canonical" href="https://acdigital.com.tr/hakkimizda" />
+      </Helmet>
+      <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
         
@@ -121,7 +114,7 @@ export default function Hakkimizda() {
                 <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8">Uzmanlık Alanlarımız</h3>
                 <div className="space-y-6">
                   {[
-                    { title: "Web Tasarım & Geliştirme", desc: "Modern, responsive ve hızlı web siteleri" },
+                    { title: "Sakarya Web Tasarım & Geliştirme", desc: "Modern, responsive ve hızlı web siteleri" },
                     { title: "Dijital Pazarlama", desc: "SEO, sosyal medya ve içerik stratejileri" },
                     { title: "Yazılım Çözümleri", desc: "Özel yazılım ve uygulama geliştirme" },
                     { title: "Marka Kimliği", desc: "Logo, kurumsal kimlik ve görsel dil" }
@@ -274,42 +267,15 @@ export default function Hakkimizda() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00D4FF]/10 via-[#4DB8FF]/10 to-[#80D4FF]/10 backdrop-blur-sm"></div>
-            
-            <div className="relative p-10 sm:p-12 lg:p-16 text-center border border-white/10">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                <span className="text-white">Projenizi</span>{' '}
-                <span className="bg-gradient-to-r from-[#00D4FF] via-[#4DB8FF] to-[#80D4FF] bg-clip-text text-transparent">
-                  Konuşalım
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed">
-                Dijital projeniz için profesyonel çözümler sunmak için hazırız. 
-                Ücretsiz danışmanlık ve teklif almak için iletişime geçin.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  to="/iletisim" 
-                  className="px-8 py-4 bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] text-gray-900 rounded-full font-bold hover:shadow-2xl hover:shadow-[#00D4FF]/30 transition-all duration-300 hover:scale-105"
-                >
-                  İletişime Geç
-                </Link>
-                <Link 
-                  to="/hizmetler" 
-                  className="px-8 py-4 bg-white/5 backdrop-blur-md text-white rounded-full font-bold hover:bg-white/10 transition-all duration-300 border border-white/10"
-                >
-                  Hizmetlerimizi Keşfedin
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section - Replace with component */}
+      <CTASection 
+        title="Projenizi Konuşalım"
+        description="Dijital projeniz için profesyonel çözümler sunmak için hazırız. Ücretsiz danışmanlık ve teklif almak için iletişime geçin."
+        primaryButtonText="İletişime Geç"
+        secondaryButtonText="Hizmetlerimizi Keşfedin"
+        secondaryButtonLink="/hizmetler"
+      />
     </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { 
     Megaphone, Users, BarChart, Heart, Share2, CalendarCheck, TrendingUp, 
     Instagram, Facebook, Linkedin, Twitter, Youtube, MessageCircle, 
@@ -73,7 +74,24 @@ export default function SosyalMedya() {
     ];
 
     return (
-        <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+        <>
+            <Helmet>
+                <title>Sosyal Medya Yönetimi | A&C Digital - Sakarya Sosyal Medya Ajansı</title>
+                <meta
+                    name="description"
+                    content="Sakarya sosyal medya yönetimi hizmetleri. Instagram, Facebook, LinkedIn ve diğer platformlarda profesyonel içerik üretimi ve topluluk yönetimi."
+                />
+                <meta
+                    name="keywords"
+                    content="Sakarya sosyal medya yönetimi, Instagram yönetimi, Facebook yönetimi, sosyal medya ajansı Sakarya, içerik üretimi"
+                />
+                <meta property="og:title" content="Sosyal Medya Yönetimi | A&C Digital" />
+                <meta property="og:description" content="Profesyonel sosyal medya yönetimi ile markanızı güçlendirin." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://acdigital.com.tr/hizmetler/sosyal-medya" />
+                <link rel="canonical" href="https://acdigital.com.tr/hizmetler/sosyal-medya" />
+            </Helmet>
+            <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
             {/* ========================================================= */}
             {/* HERO SECTION */}
             {/* ========================================================= */}
@@ -481,6 +499,7 @@ export default function SosyalMedya() {
                 </div>
             </section>
         </div>
+        </>
     );
 }
 

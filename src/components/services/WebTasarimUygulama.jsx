@@ -1,9 +1,27 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function WebTasarimUygulama() {
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Sakarya Web Tasarım ve Yazılım Çözümleri | A&C Digital</title>
+        <meta
+          name="description"
+          content="Sakarya web tasarım hizmetleri. Modern, hızlı ve SEO uyumlu web siteleri. Kurumsal web sitesi, e-ticaret sitesi ve özel yazılım projeleri."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya web tasarım, web sitesi tasarımı Sakarya, kurumsal web sitesi, e-ticaret sitesi, özel yazılım, responsive web tasarım"
+        />
+        <meta property="og:title" content="Sakarya Web Tasarım ve Yazılım | A&C Digital" />
+        <meta property="og:description" content="MSakarya’da profesyonel web tasarım ve yazılım hizmetleri. SEO uyumlu, hızlı ve mobil web siteleri. Ücretsiz teklif alın." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/hizmetler/sakarya-web-tasarim" />
+        <link rel="canonical" href="https://acdigital.com.tr/hizmetler/sakarya-web-tasarim" />
+      </Helmet>
+      <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-10">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
@@ -24,7 +42,7 @@ export default function WebTasarimUygulama() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Kurumsal Web Tasarım
+            Sakarya Web Tasarım
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text font-bold text-transparent">
               ve Yazılım Çözümleri
@@ -37,9 +55,7 @@ export default function WebTasarimUygulama() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Markanızı dijital dünyada zirveye taşıyacak, SEO uyumlu, hızlı ve güvenli web siteleri ile 
-            kurumsal yazılım çözümleri geliştiriyoruz. Modern teknolojiler ve 10+ yıllık deneyimimizle 
-            işinizi büyütmeye odaklanıyoruz.
+         Sakarya web tasarım hizmetlerimiz ile işletmeniz için modern, hızlı ve SEO uyumlu web sitesi tasarlıyoruz. Kurumsal web sitesi, e-ticaret sitesi ve özel yazılım projelerinde Sakarya’daki firmalara uçtan uca çözümler sunuyoruz.
           </motion.p>
           
           <motion.div
@@ -560,6 +576,7 @@ export default function WebTasarimUygulama() {
         </motion.div>
       </main>
     </div>
+    </>
   );
 }
 

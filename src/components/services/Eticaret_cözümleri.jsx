@@ -1,10 +1,28 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ShoppingCart, CreditCard, TrendingUp, Search, Smartphone, Zap } from "lucide-react";
 
 export default function ETicaret() {
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>E-Ticaret Çözümleri | A&C Digital - Sakarya E-Ticaret Sitesi</title>
+        <meta
+          name="description"
+          content="Sakarya e-ticaret çözümleri. Güvenli, hızlı ve ölçeklenebilir e-ticaret siteleri. Satışlarınızı katlayacak profesyonel e-ticaret platformları."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya e-ticaret, e-ticaret sitesi, online satış, e-ticaret çözümleri, e-ticaret yazılımı, Sakarya e-ticaret ajansı"
+        />
+        <meta property="og:title" content="E-Ticaret Çözümleri | A&C Digital" />
+        <meta property="og:description" content="Güvenli ve ölçeklenebilir e-ticaret siteleri ile satışlarınızı artırın." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/hizmetler/eticaret-cozumleri" />
+        <link rel="canonical" href="https://acdigital.com.tr/hizmetler/eticaret-cozumleri" />
+      </Helmet>
+      <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
       {/* ========================================================= */}
       {/* HERO SECTION */}
       {/* ========================================================= */}
@@ -386,5 +404,6 @@ export default function ETicaret() {
         </div>
       </section>
     </div>
+    </>
   );
 }

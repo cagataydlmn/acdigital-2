@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Search, TrendingUp, BarChart, Globe, Rocket, LineChart, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function Seo() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -33,7 +34,24 @@ export default function Seo() {
   ];
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Sakarya SEO Hizmetleri | A&C Digital - Arama Motoru Optimizasyonu</title>
+        <meta
+          name="description"
+          content="Sakarya SEO hizmetleri. Google arama sonuçlarında üst sıralarda yer alın. Teknik SEO, içerik optimizasyonu, yerel SEO ve performans analizi hizmetleri."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya SEO, SEO hizmetleri Sakarya, arama motoru optimizasyonu, yerel SEO, teknik SEO, Google sıralama, organik trafik artışı"
+        />
+        <meta property="og:title" content="Sakarya SEO Hizmetleri | A&C Digital" />
+        <meta property="og:description" content="Google arama sonuçlarında üst sıralarda yer alın. Profesyonel SEO hizmetleri." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/hizmetler/seo" />
+        <link rel="canonical" href="https://acdigital.com.tr/hizmetler/seo" />
+      </Helmet>
+      <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-10">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
@@ -336,6 +354,7 @@ export default function Seo() {
         </motion.section>
       </main>
     </div>
+    </>
   );
 }
 

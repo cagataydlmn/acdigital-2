@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import CTASection from "../components/CTASection";
 
 export default function Hizmetler() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -8,7 +10,7 @@ export default function Hizmetler() {
   const services = [
     {
       title: "Web Tasarımı ve geliştirme",
-      path: "/hizmetler/web-tasarim",
+      path: "/hizmetler/sakarya-web-tasarim",
       icon: "🌐",
       description: "Modern, hızlı ve kullanıcı dostu web siteleriyle dijital varlığınızı güçlendiriyoruz.",
       tags: ["Web", "Yazılım"],
@@ -71,12 +73,20 @@ export default function Hizmetler() {
     },
     {
       title: "Kurumsal Kimilik ve Marka Tasarımı",
-      path: "/hizmetler/kurumsal-kimlik",
+      path: "https://www.mfocreative.com.tr/",
       icon: "🏢",
       description: "Markanızın kişiliğini yansıtan özgün ve etkileyici kurumsal kimlik tasarımları sunuyoruz.",
       tags: ["Branding", "Tasarım"],
       gradient: "from-pink-600 to-red-600",
       category: "design"
+    }, {
+      title: "Hosting ve Domain Yönetimi",
+      path: "/hizmetler/sakarya-hosting-ve-domain-yonetimi",  
+      icon: "🌐",
+      description: "Güvenilir hosting ve domain yönetimi hizmetlerimizle web sitenizin kesintisiz erişilebilirliğini sağlıyoruz.",
+      tags: ["Branding", "Tasarım"],
+      gradient: "from-pink-600 to-red-600",
+      category: "digital"
     },
     
   ];
@@ -101,7 +111,24 @@ export default function Hizmetler() {
   ];
 
   return (
-    <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Hizmetlerimiz | A&C Digital - Sakarya Web Tasarım ve Dijital Pazarlama</title>
+        <meta
+          name="description"
+          content="Sakarya web tasarım, e-ticaret çözümleri, SEO, sosyal medya yönetimi, Google Ads, Meta Ads ve özel yazılım geliştirme hizmetleri. Profesyonel dijital çözümler."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya web tasarım, e-ticaret çözümleri, SEO hizmetleri, sosyal medya yönetimi, Google Ads, Meta Ads, özel yazılım, dijital pazarlama Sakarya"
+        />
+        <meta property="og:title" content="Hizmetlerimiz | A&C Digital" />
+        <meta property="og:description" content="Web tasarım, e-ticaret, SEO, sosyal medya yönetimi ve dijital pazarlama hizmetleri. Sakarya merkezli profesyonel çözümler." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/hizmetler" />
+        <link rel="canonical" href="https://acdigital.com.tr/hizmetler" />
+      </Helmet>
+      <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
      
@@ -140,7 +167,7 @@ export default function Hizmetler() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="hidden sm:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="hidden sm:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce mt-4">
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white/50 rounded-full"></div>
           </div>
@@ -148,10 +175,9 @@ export default function Hizmetler() {
       </section>
 
       {/* Services Section */}
-      <section id="hizmetler" className="py-12 sm:py-20 px-4 sm:px-6">
+       <section id="hizmetler" className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8 sm:mb-16">
+          {/* <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8 sm:mb-16">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -166,9 +192,8 @@ export default function Hizmetler() {
                 {category.name}
               </button>
             ))}
-          </div>
+          </div> */}
 
-          {/* Services Grid */}
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {filteredServices.map((service, index) => (
               <Link
@@ -179,24 +204,19 @@ export default function Hizmetler() {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="relative h-full bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] overflow-hidden min-h-[280px] sm:min-h-[320px]">
-                  {/* Gradient Background on Hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                   
-                  {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
-                      {/* Icon */}
                       <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl flex items-center justify-center text-3xl sm:text-5xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 border border-white/10">
                         {service.icon}
                       </div>
 
                       <div className="flex-1">
-                        {/* Title */}
                         <h3 className="text-xl sm:text-3xl font-bold mb-2 sm:mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">
                           {service.title}
                         </h3>
 
-                        {/* Tags */}
                         <div className="flex flex-wrap gap-2">
                           {service.tags.map((tag, idx) => (
                             <span 
@@ -210,12 +230,10 @@ export default function Hizmetler() {
                       </div>
                     </div>
 
-                    {/* Description */}
                     <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 flex-1">
                       {service.description}
                     </p>
 
-                    {/* CTA */}
                     <div className="flex items-center justify-between pt-4 border-t border-white/10 group-hover:border-white/20 transition-colors">
                       <span className="text-sm sm:text-base font-semibold group-hover:text-blue-400 transition-colors">
                         Detayları İncele
@@ -226,7 +244,6 @@ export default function Hizmetler() {
                     </div>
                   </div>
 
-                  {/* Decorative Elements */}
                   <div className={`absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br ${service.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
                   <div className={`absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-tr ${service.gradient} rounded-full blur-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                 </div>
@@ -234,7 +251,7 @@ export default function Hizmetler() {
             ))}
           </div>
         </div>
-      </section>
+      </section> 
 
       {/* Process Section */}
       <section className="py-12 sm:py-20 px-4 sm:px-6 bg-white/5">
@@ -330,41 +347,9 @@ export default function Hizmetler() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"></div>
-            <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
-            
-            {/* Content */}
-            <div className="relative p-8 sm:p-12 md:p-16 text-center">
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-                Projenize Bugün Başlayalım
-              </h2>
-              <p className="text-base sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-                Ücretsiz danışmanlık için bizimle iletişime geçin. 
-                Size özel çözümler üretmek için sabırsızlanıyoruz!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <a 
-                  href="/iletisim" 
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-black rounded-full font-semibold text-sm sm:text-base hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl"
-                >
-                  Hemen İletişime Geç
-                </a>
-                <a 
-                  href="/portfoy" 
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold text-sm sm:text-base hover:bg-white/30 transition-all duration-300 border border-white/30"
-                >
-                  Çalışmalarımızı Gör
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </div>
+    </>
   );
 }
 

@@ -31,9 +31,9 @@ export default function Navbar() {
             onClick={closeMenu}
           >
             <img 
-              src="/A&C@3x-8.png" 
+              src="/A&C@3x-8-2.png" 
               alt="A&C Digital" 
-              className="h-14 w-auto transition-all duration-300 group-hover:scale-110 drop-shadow-2xl"
+              className="h-16 w-auto transition-all duration-300 group-hover:scale-110 drop-shadow-2xl"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#004250] via-[#4DB8FF] to-[#80D4FF]  blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
           </Link>

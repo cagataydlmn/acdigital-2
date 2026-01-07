@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function CerezPolitikasi() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Çerez Politikası | A&C Digital';
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Çerez Politikası | A&C Digital</title>
+        <meta
+          name="description"
+          content="A&C Digital çerez politikası. Web sitemizde kullanılan çerezler ve veri toplama yöntemleri hakkında bilgi."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://acdigital.com.tr/cerez-politikasi" />
+      </Helmet>
+      <div className="min-h-screen text-white relative pt-20" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -253,5 +263,6 @@ export default function CerezPolitikasi() {
         </div>
       </section>
     </div>
+    </>
   );
 }

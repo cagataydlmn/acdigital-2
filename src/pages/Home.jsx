@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { AnimatedBeam } from '../components/ui/AnimatedBeam';
+import CTASection from '../components/CTASection';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -26,7 +28,7 @@ export default function Home() {
       alt:"araslar yapı insaat logo",
     },
     { id:2,
-      src:"/logolar/matmazel.jpeg",
+      src:"/logolar/logomatmazel.PNG",
       alt:"matmazel kadın kuaförü logo",},
     { id:3,
       src:"/logolar/MFOlogo.png",
@@ -37,6 +39,9 @@ export default function Home() {
     { id:5,
       src:"/logolar/nartas.png",
       alt:"nartaş logo",},
+      { id:6,
+        src:"/logolar/arelceliklogo.png",
+        alt:"arel logo",},
     
   ]
   const services = [
@@ -50,7 +55,7 @@ export default function Home() {
     {
       title: "Web Tasarım & Yazılım",
       description: "Modern, kullanıcı dostu ve mobil uyumlu web siteleri ve uygulamalar geliştiriyoruz.",
-      path: "/hizmetler/web-tasarim-uygulama",
+      path: "/hizmetler/sakarya-web-tasarim",
       gradient: "from-purple-500 to-pink-500",
       color: "purple"
     },
@@ -149,7 +154,27 @@ export default function Home() {
   }, []);
   
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>A&C Digital - Sakarya Web Tasarım, Yazılım ve Dijital Pazarlama Ajansı</title>
+        <meta
+          name="description"
+          content="Sakarya merkezli dijital ajans. Web tasarım, yazılım geliştirme, SEO, sosyal medya yönetimi ve dijital pazarlama hizmetleri. Profesyonel çözümlerle dijitalde fark yaratın."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya web tasarım, Sakarya dijital ajans, web tasarım Sakarya, yazılım geliştirme, SEO Sakarya, sosyal medya yönetimi, dijital pazarlama, A&C Digital"
+        />
+        <meta property="og:title" content="A&C Digital - Sakarya Web Tasarım ve Dijital Pazarlama" />
+        <meta property="og:description" content="Sakarya merkezli dijital ajans. Web tasarım, yazılım geliştirme, SEO ve sosyal medya yönetimi hizmetleri." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="A&C Digital - Sakarya Dijital Ajans" />
+        <meta name="twitter:description" content="Web tasarım, yazılım geliştirme ve dijital pazarlama hizmetleri" />
+        <link rel="canonical" href="https://acdigital.com.tr" />
+      </Helmet>
+      <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
 
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-8 px-4 sm:px-6">
@@ -167,11 +192,11 @@ export default function Home() {
               Beynin Renkli Tarafı
             </span> 
           </div> */}
-            <div className="mb-6 flex justify-center">
+            <div className=" flex justify-center mb-[-60px]">
               <img
-                src="/A&C@3x-8.png"
+                src="/A&C@3x-8-2.png"
                 alt="A&C Digital"
-                className="h-16 sm:h-20 md:h-24 w-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="h-32 sm:h-20 md:h-72 w-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300"
                 style={{ filter: 'drop-shadow(0 0 30px rgba(168, 85, 247, 0.4))' }}
               />
             </div>
@@ -216,8 +241,8 @@ export default function Home() {
 
         {/* Scroll Indicator - Colorful */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-purple-400/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></div>
+          <div className="w-6 h-10 border-2 border-blue-400/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-gradient-to-b from-[#004250] via-[#4DB8FF] to-[#80D4FF] rounded-full"></div>
           </div>
         </div>
       </section>
@@ -235,7 +260,7 @@ export default function Home() {
             </div>
             <Link
               to="/iletisim"
-              className="px-8 py-3 bg-white text-purple-600 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl whitespace-nowrap"
+              className="px-8 py-3 bg-white text-blue-600 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl whitespace-nowrap"
             >
               Projenize Başlayın →
             </Link>
@@ -595,6 +620,10 @@ export default function Home() {
 
    
       </section>
+
+      {/* CTA Section */}
+      <CTASection />
     </div>
+    </>
   );
 }

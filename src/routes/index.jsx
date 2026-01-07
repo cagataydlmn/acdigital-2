@@ -19,6 +19,8 @@ import Denemene from "../pages/deneme";
 import GizlilikPolitikasi from "../pages/GizlilikPolitikasi";
 import KullanimKosullari from "../pages/KullanimKosullari";
 import CerezPolitikasi from "../pages/CerezPolitikasi";
+import OzelYazilim from "../components/services/Ozel_yazilim";
+import HostingveDomainYonetimi from "../components/services/HostingveDomainYonetimi";
 
 const routes = createBrowserRouter([
   {
@@ -77,7 +79,7 @@ const routes = createBrowserRouter([
         element: <Seo />,
       },
       {
-        path: "/hizmetler/web-tasarim",
+        path: "/hizmetler/sakarya-web-tasarim",
         element: <WebTasarimUygulama />,
       },
       {
@@ -95,6 +97,13 @@ const routes = createBrowserRouter([
       {
         path: "/cerez-politikasi",
         element: <CerezPolitikasi />,
+      },   {
+        path: "/hizmetler/ozel-yazilim",
+        element: <OzelYazilim />,
+      },
+      {
+        path: "/hizmetler/sakarya-hosting-ve-domain-yonetimi",
+        element: <HostingveDomainYonetimi />,
       },
     ],
   },

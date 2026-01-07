@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export default function KurumsalKimlikTasarimi() {
   const [activeTab, setActiveTab] = useState(0);
@@ -114,7 +115,24 @@ export default function KurumsalKimlikTasarimi() {
   ];
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Kurumsal Kimlik Tasarımı | A&C Digital - Logo ve Marka Tasarımı</title>
+        <meta
+          name="description"
+          content="Kurumsal kimlik tasarımı hizmetleri. Logo tasarımı, kurumsal kimlik kılavuzu, kırtasiye tasarımı ve marka kimliği çözümleri."
+        />
+        <meta
+          name="keywords"
+          content="kurumsal kimlik tasarımı, logo tasarımı, marka kimliği, kurumsal kimlik kılavuzu, kırtasiye tasarımı, Sakarya tasarım ajansı"
+        />
+        <meta property="og:title" content="Kurumsal Kimlik Tasarımı | A&C Digital" />
+        <meta property="og:description" content="Markanıza güçlü bir kimlik kazandırın. Logo ve kurumsal kimlik tasarımı." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/hizmetler/kurumsal-kimlik" />
+        <link rel="canonical" href="https://acdigital.com.tr/hizmetler/kurumsal-kimlik" />
+      </Helmet>
+      <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-10">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
@@ -413,6 +431,7 @@ export default function KurumsalKimlikTasarimi() {
         </div>
       </section>
     </div>
+    </>
   );
 }
 

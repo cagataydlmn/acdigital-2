@@ -1,139 +1,91 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import CTASection from '../components/CTASection';
 
 export default function Portfoy() {
   const websites = [
     {
       id: 1,
-      title: 'Anadolu Sigorta',
-      url: 'https://www.anadolusigorta.com.tr',
+      title: 'Matmazel Kuaför',
+      url: 'https://matmazelizmit.com/',
       description: 'Kurumsal web sitesi ve dijital dönüşüm projesi',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      image: '/webler/matmazelHome.png',
       category: 'Kurumsal',
       color: 'from-blue-600 to-cyan-500',
       tags: ['Web Tasarım', 'UI/UX', 'Responsive']
     },
     {
       id: 2,
-      title: 'E-Ticaret Platformu',
-      url: 'https://www.trendyol.com',
-      description: 'Tam kapsamlı e-ticaret çözümü ve ödeme entegrasyonu',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      category: 'E-Ticaret',
+      title: 'NarÇit',
+      url: 'https://narcitsistemleri.com/',
+      description: 'Kurumsal web sitesi ve dijital dönüşüm projesi',
+      image: '/webler/narcit.png',
+      category: 'Kurumsal',
       color: 'from-purple-600 to-pink-500',
-      tags: ['E-Commerce', 'React', 'API']
+      tags: ['Web Tasarım', 'UI/UX', 'Responsive']
     },
     {
       id: 3,
-      title: 'Restoran Web Sitesi',
-      url: 'https://www.nusret.com.tr',
-      description: 'Modern restoran menü ve rezervasyon sistemi',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
-      category: 'Gastronomi',
+      title: 'NartTaş',
+      url: 'https://nartasyapi.com/',
+      description: 'Kurumsal web sitesi ve dijital dönüşüm projesi',
+      image: '/webler/nartasyapi.png',
+      category: 'Kurumsal',
       color: 'from-orange-600 to-red-500',
-      tags: ['Web Tasarım', 'Online Rezervasyon']
+      tags: ['Web Tasarım', 'UI/UX', 'Responsive']
     },
     {
       id: 4,
-      title: 'Gayrimenkul Portalı',
-      url: 'https://www.sahibinden.com',
-      description: 'Emlak listeleme ve filtreleme sistemi',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
-      category: 'Gayrimenkul',
+      title: 'Araslar Yapı',
+      url: 'https://xn--araslaryap-6ub.com/',
+      description: 'Kurumsal web sitesi ve dijital dönüşüm projesi',
+      image: '/webler/araslaryapi.png',
+      category: 'Kurumsal',
       color: 'from-green-600 to-emerald-500',
-      tags: ['Portal', 'Database', 'Search']
+      tags: ['Web Tasarım', 'UI/UX', 'Responsive']
     },
     {
       id: 5,
-      title: 'Fitness & Wellness',
-      url: 'https://www.nike.com/tr',
-      description: 'Spor merkezi web sitesi ve online koçluk platformu',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop',
-      category: 'Spor & Sağlık',
+      title: 'MFÖ Creative',
+      url: 'https://www.mfocreative.com.tr/',
+      description: 'Kurumsal web sitesi ve dijital dönüşüm projesi',
+      image: '/webler/mfocreative.png',
+      category: 'Kurumsal',
       color: 'from-indigo-600 to-purple-500',
-      tags: ['Web App', 'Membership', 'Dashboard']
-    },
-    {
+      tags: ['Web Tasarım', 'UI/UX', 'Responsive']
+    },{
       id: 6,
-      title: 'Eğitim Platformu',
-      url: 'https://www.udemy.com',
-      description: 'Online eğitim ve kurs yönetim sistemi',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop',
-      category: 'Eğitim',
-      color: 'from-yellow-600 to-orange-500',
-      tags: ['LMS', 'Video', 'Interactive']
+      title: 'Arel Çelik',
+      url: 'https://arelcelik.com.tr/',
+      description: 'Kurumsal web sitesi ve dijital dönüşüm projesi',
+      image: '/webler/arelsite.png',
+      category: 'Kurumsal',
+      color: 'from-blue-600 to-red-500',
+      tags: ['Web Tasarım', 'UI/UX', 'Responsive']
     },
-    {
-      id: 7,
-      title: 'Moda & Butik',
-      url: 'https://www.zara.com',
-      description: 'Lüks marka web sitesi ve koleksiyon galerisi',
-      image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&h=600&fit=crop',
-      category: 'Moda',
-      color: 'from-pink-600 to-rose-500',
-      tags: ['Fashion', 'E-Commerce', 'Lookbook']
-    },
-    {
-      id: 8,
-      title: 'Otel & Konaklama',
-      url: 'https://www.booking.com',
-      description: 'Otel rezervasyon ve oda yönetim sistemi',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop',
-      category: 'Turizm',
-      color: 'from-cyan-600 to-blue-500',
-      tags: ['Booking System', 'CRM', 'Multi-language']
-    },
-    {
-      id: 9,
-      title: 'Teknoloji Firması',
-      url: 'https://www.apple.com',
-      description: 'Kurumsal teknoloji şirketi web sitesi',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop',
-      category: 'Teknoloji',
-      color: 'from-slate-600 to-gray-500',
-      tags: ['Corporate', 'Modern', 'Minimal']
-    },
-    {
-      id: 10,
-      title: 'Sağlık & Klinik',
-      url: 'https://www.acibadem.com.tr',
-      description: 'Sağlık kuruluşu ve online randevu sistemi',
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop',
-      category: 'Sağlık',
-      color: 'from-teal-600 to-green-500',
-      tags: ['Healthcare', 'Appointment', 'CMS']
-    },
-    {
-      id: 11,
-      title: 'Hukuk Bürosu',
-      url: 'https://www.example-law.com',
-      description: 'Avukatlık bürosu kurumsal web sitesi',
-      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop',
-      category: 'Hukuk',
-      color: 'from-amber-600 to-yellow-500',
-      tags: ['Professional', 'Blog', 'Contact']
-    },
-    {
-      id: 12,
-      title: 'Cafe & Kahve Dükkanı',
-      url: 'https://www.starbucks.com.tr',
-      description: 'Kafe web sitesi ve online sipariş sistemi',
-      image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&h=600&fit=crop',
-      category: 'Gastronomi',
-      color: 'from-red-600 to-orange-500',
-      tags: ['Food', 'Menu', 'Order System']
-    }
+   
   ];
 
-  const categories = ['Tümü', 'Kurumsal', 'E-Ticaret', 'Gastronomi', 'Gayrimenkul', 'Spor & Sağlık', 'Eğitim', 'Moda', 'Turizm', 'Teknoloji', 'Sağlık', 'Hukuk'];
-
-  const [selectedCategory, setSelectedCategory] = useState('Tümü');
-
-  const filteredWebsites = selectedCategory === 'Tümü' 
-    ? websites 
-    : websites.filter(site => site.category === selectedCategory);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
+    <>
+      <Helmet>
+        <title>Portföy | A&C Digital - Başarılı Projelerimiz</title>
+        <meta
+          name="description"
+          content="A&C Digital'in tamamladığı başarılı web tasarım, e-ticaret ve dijital pazarlama projeleri. Sakarya merkezli referanslarımızı inceleyin."
+        />
+        <meta
+          name="keywords"
+          content="Sakarya web tasarım projeleri, referanslar, portföy, başarılı projeler, web sitesi örnekleri, A&C Digital portföy"
+        />
+        <meta property="og:title" content="Portföy | A&C Digital" />
+        <meta property="og:description" content="Başarılı web tasarım ve dijital pazarlama projelerimizi inceleyin." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://acdigital.com.tr/portfoy" />
+        <link rel="canonical" href="https://acdigital.com.tr/portfoy" />
+      </Helmet>
+      <div className="min-h-screen text-white relative overflow-hidden" style={{ zIndex: 1, position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-10">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
@@ -158,31 +110,13 @@ export default function Portfoy() {
       </section>
 
       {/* Filter Section */}
-      <section className="relative py-12 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/50'
-                    : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Projects Grid */}
       <section className="relative py-12 px-4 sm:px-6 pb-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredWebsites.map((site, index) => (
+            {websites.map((site, index) => (
               <a
                 key={site.id}
                 href={site.url}
@@ -246,13 +180,17 @@ export default function Portfoy() {
             ))}
           </div>
 
-          {filteredWebsites.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-gray-400 text-xl">Bu kategoride henüz proje bulunmamaktadır.</p>
-            </div>
-          )}
+         
         </div>
       </section>
+
+      {/* CTA Section */}
+      <CTASection 
+        title="Sizin Projeniz Bir Sonraki Olsun"
+        description="Portfolyomuz sürekli büyüyor. Bir sonraki başarı hikayesi sizinki olabilir!"
+        primaryButtonText="Hemen Başlayalım"
+      />
+      </div>
 
       <style jsx>{`
         @keyframes fadeInUp {
@@ -266,7 +204,7 @@ export default function Portfoy() {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 }
 

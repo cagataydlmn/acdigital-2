@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { blogPosts, categories } from "../data/blogData";
 import { Helmet } from "react-helmet-async";
+import CTASection from "../components/CTASection";
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("tumu");
@@ -179,28 +180,12 @@ export default function Blog() {
             </div>
           )}
 
-          {/* CTA Section */}
-          <section className="mt-20">
-            <div className="relative rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00D4FF]/20 via-[#4DB8FF]/20 to-[#80D4FF]/20"></div>
-              <div className="absolute inset-0 backdrop-blur-xl"></div>
-
-              <div className="relative p-12 text-center border border-white/10">
-                <h2 className="text-3xl font-bold mb-4">
-                  Projeniz İçin Profesyonel Destek
-                </h2>
-                <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Web tasarım, SEO, dijital pazarlama ve sosyal medya yönetimi hizmetlerimiz hakkında detaylı bilgi almak için bizimle iletişime geçin.
-                </p>
-                <Link
-                  to="/iletisim"
-                  className="inline-block px-8 py-4 bg-gradient-to-r from-[#00D4FF] to-[#80D4FF] text-gray-900 rounded-full font-semibold hover:shadow-lg hover:shadow-[#4DB8FF]/50 transition-all hover:scale-105"
-                >
-                  Ücretsiz Danışmanlık Alın
-                </Link>
-              </div>
-            </div>
-          </section>
+          {/* CTA Section - Replace inline with component */}
+          <CTASection 
+            title="Projeniz İçin Profesyonel Destek"
+            description="Web tasarım, SEO, dijital pazarlama ve sosyal medya yönetimi hizmetlerimiz hakkında detaylı bilgi almak için bizimle iletişime geçin."
+            primaryButtonText="Ücretsiz Danışmanlık Alın"
+          />
         </div>
       </section>
     </>

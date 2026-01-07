@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export default function NotFound() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -17,7 +18,13 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-transparent from-black via-gray-900 to-black text-white flex items-center justify-center relative overflow-hidden">
+    <>
+      <Helmet>
+        <title>404 - Sayfa Bulunamadı | A&C Digital</title>
+        <meta name="description" content="Aradığınız sayfa bulunamadı. Ana sayfaya dönmek için tıklayın." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div className="min-h-screen bg-transparent from-black via-gray-900 to-black text-white flex items-center justify-center relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
@@ -104,5 +111,6 @@ export default function NotFound() {
         </div>
       </div>
     </div>
+    </>
   );
 }
