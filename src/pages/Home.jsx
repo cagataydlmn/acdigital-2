@@ -46,44 +46,44 @@ export default function Home() {
   ]
   const services = [
     {
-      title: "Kurumsal Kimlik Tasarımı",
-      description: "Markanıza özgün ve profesyonel kimlik kazandırıyoruz. Logo, kurumsal kılavuz ve görsel dil tasarımı.",
-      path: "/hizmetler/kurumsal-kimlik-tasarimi",
+      title: "Web Tasarımı ve geliştirme",
+      description: "Modern, hızlı ve kullanıcı dostu web siteleriyle dijital varlığınızı güçlendiriyoruz.",
+      path: "/hizmetler/sakarya-web-tasarim",
       gradient: "from-blue-500 to-cyan-500",
       color: "blue"
     },
     {
-      title: "Web Tasarım & Yazılım",
-      description: "Modern, kullanıcı dostu ve mobil uyumlu web siteleri ve uygulamalar geliştiriyoruz.",
-      path: "/hizmetler/sakarya-web-tasarim",
+      title: "E-ticaret Çözümleri",
+      description: "Satışlarınızı katlayacak, güvenli ve ölçeklenebilir e-ticaret platformları geliştiriyoruz.",
+      path: "/hizmetler/eticaret-cozumleri",
       gradient: "from-purple-500 to-pink-500",
       color: "purple"
     },
     {
-      title: "Sosyal Medya Yönetimi",
-      description: "İçerik üretimi, reklam kampanyaları ve sosyal medya stratejileri ile markanızı büyütüyoruz.",
-      path: "/hizmetler/sosyal-medya-calismalari",
+      title: "SEO Hizmetleri",
+      description: "Arama motorlarında üst sıralara çıkarak organik trafiğinizi ve görünürlüğünüzü artırıyoruz.",
+      path: "/hizmetler/seo",
       gradient: "from-pink-500 to-rose-500",
       color: "pink"
     },
     {
-      title: "Tanıtım Filmi Çekimi",
-      description: "Profesyonel video prodüksiyon, kurumsal tanıtım filmleri ve reklam çekimleri.",
-      path: "/hizmetler/tanitim-filmi-cekimleri",
+      title: "Sosyal Medya Yönetimi",
+      description: "Sosyal medyada etkileşimi artıran stratejilerle marka bilinirliğinizi yükseltiyoruz.",
+      path: "/hizmetler/sosyal-medya",
       gradient: "from-orange-500 to-red-500",
       color: "orange"
     },
     {
-      title: "Grafik Tasarım",
-      description: "Broşür, katalog, afiş, sosyal medya görselleri ve tüm görsel ihtiyaçlarınız için yaratıcı çözümler.",
-      path: "/hizmetler/tasarim-hizmetleri",
+      title: "Meta ADS Yönetimi",
+      description: "Facebook ve Instagram reklamları ile hedef kitlenize ulaşarak dönüşümlerinizi optimize ediyoruz.",
+      path: "/hizmetler/meta-ads",
       gradient: "from-teal-500 to-green-500",
       color: "teal"
     },
     {
-      title: "Baskı Hizmetleri",
-      description: "Kartvizit, katalog, broşür, afiş ve tüm tanıtım materyalleriniz için profesyonel baskı çözümleri.",
-      path: "/hizmetler/baski-hizmetleri",
+      title: "Google ADS Yönetimi",
+      description: "Google ağında etkili reklam kampanyalarıyla potansiyel müşterilerinize doğrudan ulaşın.",
+      path: "/hizmetler/GoogleAds",
       gradient: "from-indigo-500 to-blue-500",
       color: "indigo"
     }
@@ -587,35 +587,42 @@ export default function Home() {
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
           <div className="relative w-full overflow-hidden py-8">
-            <div className="flex gap-12 animate-marquee">
-              {/* First set of logos */}
-              {Markalar.map((marka) => (
-                <div
-                  key={`first-${marka.id}`}
-                  className="group min-w-[200px] h-[140px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105"
-                >
-                  <img
-                    alt={marka.alt}
-                    src={marka.src}
-                    className="max-h-20 max-w-full object-contain filter brightness-75 grayscale group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {Markalar.map((marka) => (
-                <div
-                  key={`second-${marka.id}`}
-                  className="group min-w-[200px] h-[140px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105"
-                >
-                  <img
-                    alt={marka.alt}
-                    src={marka.src}
-                    className="max-h-20 max-w-full object-contain filter brightness-75 grayscale group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="flex w-max gap-6 md:gap-12 animate-marquee">
+    {/* 1. set */}
+    {Markalar.map((marka) => (
+      <div
+        key={`first-${marka.id}`}
+        className="group min-w-[200px] h-[140px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105"
+      >
+        <img
+          alt={marka.alt}
+          src={marka.src}
+          className="max-h-20 max-w-full object-contain filter brightness-75 grayscale group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    ))}
+
+    {/* 2. set (duplicate) */}
+    {Markalar.map((marka) => (
+      <div
+        key={`second-${marka.id}`}
+        className="group min-w-[200px] h-[140px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-6 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105"
+      >
+        <img
+          alt={marka.alt}
+          src={marka.src}
+          className="max-h-20 max-w-full object-contain filter brightness-75 grayscale group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+
         </div>
 
    

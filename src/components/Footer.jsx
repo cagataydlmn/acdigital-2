@@ -4,13 +4,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: 'Kurumsal Kimlik Tasarımı', path: '/hizmetler/kurumsal-kimlik-tasarimi' },
-    { name: 'Web Tasarım & Yazılım', path: '/hizmetler/web-tasarim-uygulama' },
-    { name: 'E-Ticaret Çözümleri', path: '/hizmetler/e-ticaret-cozumleri' },
+    { name: 'Web Tasarım & Yazılım', path: '/hizmetler/sakarya-web-tasarim' },
+    { name: 'E-Ticaret Çözümleri', path: '/hizmetler/eticaret-cozumleri' },
     { name: 'SEO & Dijital Pazarlama', path: '/hizmetler/seo' },
-    { name: 'Google Ads', path: '/hizmetler/google-ads' },
+    { name: 'Google Ads', path: '/hizmetler/GoogleAds' },
     { name: 'Meta Ads', path: '/hizmetler/meta-ads' },
-    { name: 'Sosyal Medya Yönetimi', path: '/hizmetler/sosyal-medya-calismalari' }
+    { name: 'Sosyal Medya Yönetimi', path: '/hizmetler/sosyal-medya' }
   ];
 
   const quickLinks = [
@@ -44,7 +43,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-400 leading-relaxed mb-6 text-sm">
-              Markanızı dijital dünyada zirveye taşıyoruz. 10+ yıllık deneyimimiz ve uzman ekibimizle 
+              Markanızı dijital dünyada zirveye taşıyoruz. 3+ yıllık deneyimimiz ve uzman ekibimizle 
               web tasarım, dijital pazarlama ve kurumsal kimlik çözümleri sunuyoruz.
             </p>
             <div className="flex items-center gap-3">

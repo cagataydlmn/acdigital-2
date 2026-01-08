@@ -248,9 +248,9 @@ export default function Hakkimizda() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
-              { number: "500+", label: "Tamamlanan Proje" },
-              { number: "150+", label: "Mutlu Müşteri" },
-              { number: "7+", label: "Yıllık Deneyim" },
+              { number: "20+", label: "Tamamlanan Proje" },
+              { number: "50+", label: "Mutlu Müşteri" },
+              { number: "3+", label: "Yıllık Deneyim" },
               { number: "24/7", label: "Destek" }
             ].map((stat, index) => (
               <div 

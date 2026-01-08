@@ -8,7 +8,6 @@ import Blog from "../pages/Blog";
 import BlogDetail from "../pages/BlogDetail";
 import Iletisim from "../pages/Iletisim";
 import NotFound from "../pages/NotFound";
-import Eticaret_cözümleri from "../components/services/Eticaret_cözümleri";
 import SosyalMedyaCalismalari from "../components/services/SosyalMedyaCalismalari";
 import GoogleAds from "../components/services/GoogleAds";
 import MetaAds from "../components/services/MetaAds";
@@ -21,6 +20,7 @@ import KullanimKosullari from "../pages/KullanimKosullari";
 import CerezPolitikasi from "../pages/CerezPolitikasi";
 import OzelYazilim from "../components/services/Ozel_yazilim";
 import HostingveDomainYonetimi from "../components/services/HostingveDomainYonetimi";
+import ETicaret from "../components/services/Eticaret_cozumleri";
 
 const routes = createBrowserRouter([
   {
@@ -56,7 +56,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/hizmetler/eticaret-cozumleri",
-        element: <Eticaret_cözümleri />,
+        element: <ETicaret />,
       },
       {
         path: "/hizmetler/sosyal-medya",
